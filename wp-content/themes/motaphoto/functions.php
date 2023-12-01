@@ -10,6 +10,10 @@ function theme_enqueue_styles()
     wp_enqueue_style("space-mono-font", get_stylesheet_directory_uri() . "/fonts/Space-Mono/stylesheet.css", array(), );
     wp_enqueue_style("poppins-font", get_stylesheet_directory_uri() . "/fonts/Poppins/stylesheet.css", array(), );
 
+    
     wp_enqueue_script("script-js", get_stylesheet_directory_uri() . "/js/script.js");
 }
+
+
+
 
