@@ -5,19 +5,26 @@ Template Name: Photos
 
 get_header(); ?>
 
-<?php $loop = new WP_Query( array( 'post_type' => 'photos', 'posts_per_page' => 10, 'paged' => $paged) ); ?>
+<div class="main-title" >
+  <h1 class="main-title-title">photographe event</h1>
+</div>
+
+<div class="main-photos hide-title" >
+<?php $loop = new WP_Query( array( 'post_type' => 'photos', 'posts_per_page' => 8, 'paged' => $paged) ); ?>
 
 <?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
 
-<?php the_title( '<h2 class="entry-title"><a href="' . get_permalink() . '" title="' . the_title_attribute( 'echo=0' ) . '" rel="bookmark">', '</a></h2>' ); ?>
-
 <div class="entry-content">
-  <?php the_post_thumbnail(); ?>
+  <a href="<?php the_permalink() ?>" title="<?php the_title_attribute() ?>">
+  <img src="<?php echo get_the_post_thumbnail_url( $loop->ID, 'large' ); ?>" />
+  </a>
   <?php the_content() ; ?>
 </div>
 
 <?php the_terms( $post->ID, 'genre', 'Genre : ' ); ?>
 
 <?php endwhile ; ?>
+
+</div>
 
 <?php get_footer() ; ?>
