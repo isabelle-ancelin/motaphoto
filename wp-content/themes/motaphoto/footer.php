@@ -49,12 +49,18 @@
 	<div class="modal-content">
 		<div class="modal-header">
 		</div>
-
 		<div class="modal-body">
-			<?php echo do_shortcode('[contact-form-7 id="3c0ccbd" title="Contact form 1"]'); ?>
+			<?php
+			// Récupère la référence de la photo
+			$photoReference = get_post_meta(get_the_ID(), 'reference_de_la_photo', true);
+
+			echo do_shortcode('[contact-form-7 id="3c0ccbd" title="Contact form 1"]'); ?>
 		</div>
+
 	</div>
+
 </div>
+
 
 </div><!-- #page -->
 
