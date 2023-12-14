@@ -53,7 +53,18 @@
 			<?php
 			// Récupère la référence de la photo
 			$photoReference = get_post_meta(get_the_ID(), 'reference_de_la_photo', true);
-
+			
+			$terms = get_terms( array(
+				'taxonomy' => 'reference_de_la_photo',
+				'hide_empty' => false, 
+			) );
+			
+			if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
+				foreach ($terms as $term) {
+					echo '<p>' . esc_html($term->name) . '</p>';
+				}
+			}
+			
 			echo do_shortcode('[contact-form-7 id="3c0ccbd" title="Contact form 1"]'); ?>
 		</div>
 

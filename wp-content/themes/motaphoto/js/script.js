@@ -38,15 +38,18 @@ function updateMainTitleImage() {
   }
 }
 
-  // Attends que le document soit prêt
+
 jQuery(document).ready(function($) {
   // Remplace 'ID_DU_CHAMP' par l'ID réel de ton champ ref photo
   var champRefPhoto = $('#ref-photo-input');  
-  var referenceDeLaPhotoValue = getReferenceDeLaPhoto();  // Utilise le nom correct de la fonction
+  var referenceDeLaPhotoValue = getReferenceDeLaPhoto();  
   console.log('Référence de la photo :', referenceDeLaPhotoValue);
 
   // Préremplis le champ avec la valeur récupérée du champ personnalisé ACF
   champRefPhoto.val(referenceDeLaPhotoValue);
+  
+  // Utilisation pour récupérer la valeur de la référence de la photo
+  console.log('Référence de la photo (à l\'intérieur de jQuery.ready) :', referenceDeLaPhotoValue);
 });
 
 // Fonction pour récupérer la valeur de la référence de la photo depuis le champ personnalisé ACF
@@ -54,7 +57,9 @@ function getReferenceDeLaPhoto() {
   // Vérifie si ACF est défini (chargé sur la page)
   if (typeof acf !== 'undefined') {
     // Récupère la valeur du champ "reference_de_la_photo" du groupe ACF spécifié
-    var field = acf.getField('reference_de_la_photo', 'group_6567014f4dbda');
+    var field = getField('reference_de_la_photo', 'group_6567014f4dbda');
+    console.log('Champ ACF :', field);
+
     if (field) {
       return field.val();
     }
@@ -64,6 +69,3 @@ function getReferenceDeLaPhoto() {
   return 'Valeur_par_défaut';
 }
 
-// Utilisation pour récupérer la valeur de la référence de la photo
-var referenceDeLaPhotoValue = getReferenceDeLaPhoto();
-console.log('Référence de la photo :', referenceDeLaPhotoValue);

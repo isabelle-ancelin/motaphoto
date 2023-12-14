@@ -7,31 +7,37 @@ get_header();
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<?php if ( ! is_front_page() ) : ?>
-		<header class="entry-header alignwide">
-			<?php get_template_part( 'template-parts/header/entry-header' ); ?>
-			<?php twenty_twenty_one_post_thumbnail(); ?>
-		</header><!-- .entry-header -->
-	<?php elseif ( has_post_thumbnail() ) : ?>
-		<header class="entry-header alignwide">
-			<?php twenty_twenty_one_post_thumbnail(); ?>
-		</header><!-- .entry-header -->
-	<?php endif; ?>
+<div class="main-title">
+  <h1 class="main-title-title">Photographe Event</h1>
+</div>
 
-	<div class="entry-content">
-		<?php
-		the_content();
+<div class="main-photos hide-title" id="photo-container">
+  <?php
+  $loop = new WP_Query(array('post_type' => 'photos', 'posts_per_page' => 8, 'paged' => $paged));
 
-		wp_link_pages(
-			array(
-				'before'   => '<nav class="page-links" aria-label="' . esc_attr__( 'Page', 'twentytwentyone' ) . '">',
-				'after'    => '</nav>',
-				/* translators: %: Page number. */
-				'pagelink' => esc_html__( 'Page %', 'twentytwentyone' ),
-			)
-		);
-		?>
-	</div><!-- .entry-content -->
+  while ($loop->have_posts()) : $loop->the_post();
+  ?>
+
+    <div class="entry-content">
+      <a href="<?php the_permalink() ?>" title="<?php the_title_attribute() ?>">
+        <img src="<?php echo get_the_post_thumbnail_url($loop->ID, 'large'); ?>" />
+      </a>
+
+      <?php the_content(); ?>
+    </div>
+
+    <?php the_terms($post->ID, 'genre', 'Genre : '); ?>
+
+  <?php endwhile; ?>
+
+</div>
+
+<div class="load-more-container">
+  <button id="load-more-btn">Charger plus</button>
+</div>
+
+<?php if ($paged > 1): ?>
+  <?php endif; ?>
 
 	
 </article><!-- #post-<?php the_ID(); ?> -->

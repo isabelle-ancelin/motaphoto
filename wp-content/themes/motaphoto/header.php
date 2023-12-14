@@ -26,8 +26,10 @@
 			?>
 
 		</a>
-
-		<?php get_template_part('template-parts/header/site-header');?>
+<div class="container-header" >
+<?php get_template_part('template-parts/header/site-header');?>
+</div>
+		
 
 		<div id="content" class="site-content">
 			<div id="primary" class="content-area">
