@@ -1,0 +1,33 @@
+/* Style du menu principal */
+.container-header {
+    position: fixed;
+    background: white;
+    width: 100vw;
+    box-shadow: 0px 25px 20px -20px #d8d8d8;
+    z-index: 1000;
+  }
+  #masthead {
+    position: relative;
+    background-color: white;
+    width:100vw;
+    height: 80px;
+    padding: 1px 0 1px 0;
+  }
+  
+  #primary-menu-list a {
+    font-family: var(--font-mono);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  
+  #primary-menu-list a:hover {
+    font-weight: 700;
+  }
+ .content-area {
+  margin-top: 80px;
+ }
+  

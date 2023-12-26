@@ -1,0 +1,48 @@
+/** Styles pour la page d'accueil **/
+
+.main-title {
+    position: relative;
+    background-image: url("http://localhost:81/motaphoto/wp-content/uploads/2023/11/Lets-dance-compressed-scaled.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 962px;
+    max-width: 100%;
+  }
+  
+  .main-title-title {
+    position: absolute;
+    top: 40%;
+    left: 30%;
+    transform: translate3d(-25%, 0, 0);
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 96px;
+    font-weight: 700;
+    word-spacing: 20px;
+    font-style: italic;
+    color: transparent;
+    -webkit-text-stroke: 2px rgb(255, 255, 255);
+  }
+  
+  .main-photos {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  
+  .entry-content {
+    width: 48%;
+  }
+  
+  .entry-content img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  .hide-title h2 {
+    display: none;
+  }
+  

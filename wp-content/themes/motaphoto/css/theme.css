@@ -1,54 +1,29 @@
 
 /* Styles généraux */
 
-
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 :root {
   --font-poppins: "Poppins", sans-serif;
   --font-mono: "Space Mono", monospace;
 }
 
-/* Style du menu principal */
-.container-header {
-  position: sticky;
-  width: 100vw;
-  box-shadow: 0px 25px 20px -20px #d8d8d8;
-  z-index: 1000;
-}
-#masthead {
-  position: relative;
-  background-color: white;
-  width:100vw;
-  height: 80px;
-  padding: 1px 0 1px 0;
-}
-
-#primary-menu-list a {
-  font-family: var(--font-mono);
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-  text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
-#primary-menu-list a:hover {
-  font-weight: 700;
-}
-
-/* Styles des titres */
-h1, h2, h3 {
-  font-family: var(--font-mono);
-  font-weight: 400;
-  font-style: italic;
-  line-height: 1.2em;
- 
-}
-
-h1 { font-size: 96px; }
-h2 { font-size: 66px; }
-h3 { font-size: 18px; }
-
+  
+  /* Styles des titres */
+  h1, h2, h3 {
+    font-family: var(--font-mono);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.2em;
+   
+  }
+  
+  h1 { font-size: 96px; }
+  h2 { font-size: 66px; }
+  h3 { font-size: 18px; }
 /* Styles des paragraphes */
 p {
   font-family: var(--font-poppins);
@@ -57,220 +32,27 @@ p {
   line-height: 21px;
 }
 
-/* Modal contact */
-#modal-contact {
-  display: none;
-  justify-content: center;
-  padding: 5px 0 70px;
-
-  margin: auto;
-}
-
-.modal-content {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  position: fixed;
-  background: white;
-  padding: 15px 0;
-  border: 5px solid black;
-  z-index: 1;
-  text-transform: uppercase;
-  color: #313144;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 600px;
-  height: 770px;
-  padding: 10px;
-}
-
-.hidden {
-  display: none;
-}
-
-/* Formulaire de contact */
-#wpcf7-f44-o1 > form {
-  padding-top: 25px;
-}
-
-/* En-tête du modal */
-.modal-header {
-  background-image: url(../assets/pictures/Contact\ header.png);
-  background-position: center;
-  background-size: cover;
-  width: inherit;
-  overflow: hidden;
-  object-fit: cover;
-  height: 106.05px;
-  padding-bottom: 30px;
-}
-
-#wpcf7-f44-o1 > form > p > label {
-  font-family: var(--font-poppins);
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 18px;
-}
-
-/* Champs de formulaire input et textarea */
-#wpcf7-f44-o1 > form > p > label > span > input,
-#wpcf7-f44-o1 > form > p:nth-child(5) > label > span > textarea {
-  border: #b8bbc2 1px solid;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-  border-radius: 8px;
-  resize: none;
-  width: 263px;
-}
-#wpcf7-f44-o1 > form > p:nth-child(5) > label > span > textarea {
-  height: 210px;
-}
-/* Paragraphes du formulaire */
-#wpcf7-f44-o1 > form > p {
-  margin-top: 20px;
-  margin-bottom: 5px;
-}
-
-/* Bouton du formulaire */
-#wpcf7-f44-o1 > form > p:nth-child(6) > input {
-  position: relative;
-  top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: auto;
-  transition: 0.25s ease-in;
-  transition-delay: 0.1s;
-  background: #d8d8d8;
-  font: var(--font-mono);
+button {
+  background-color: #d8d8d8 !important;
+  font-family: "Space Mono", monospace !important;
+  color: black !important;
+  font-size: 12px !important;
   font-weight: 400;
-  font-size: 12px;
-  color: black;
-  border: none;
-}
-
-#wpcf7-f44-o1 > form > p:nth-child(6) > input:hover {
-  font-weight: 600;
-  border: none;
-}
-
-/** Styles pour la page d'accueil **/
-
-.main-title {
-  position: relative;
-  background-image: url("http://localhost:81/motaphoto/wp-content/uploads/2023/11/Lets-dance-compressed-scaled.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 962px;
-  max-width: 100%;
-}
-
-.main-title-title {
-  position: absolute;
-  top: 40%;
-  left: 30%;
-  transform: translate3d(-25%, 0, 0);
-  text-transform: uppercase;
-  text-align: center;
-  font-size: 96px;
-  font-weight: 700;
-  word-spacing: 20px;
-  font-style: italic;
-  color: transparent;
-  -webkit-text-stroke: 2px rgb(255, 255, 255);
-}
-
-.main-photos {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-}
-
-.entry-content {
-  width: 48%;
-}
-
-.entry-content img {
-  width: 100%;
-  height: 600px;
-  object-fit: cover;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-.hide-title h2 {
-  display: none;
-}
-
-/** styles pour les pages photo card **/
-.photo-title {
-  color: black;
-  text-transform: uppercase;
-  width: 50%;
-}
-
-.photo-card {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  align-items: flex-end;
-}
-
-.photo-thumbnail {
-  width: 50%;
-  height: 50%; 
-}
-.photo-details {
-  width: 420px;
-  height: 321px;
-  border-bottom: 1px black solid;
-}
-.photo-details p{
-  text-transform: uppercase;
-  line-height: 30.73px;
-}
-.photo-contact-section {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-}
-.photo-contact-btn {
   width: 272px;
   height: 50px;
-  border: none;
-  background-color: #d8d8d8;
-  color: red;
+  line-height: 50%;
+  border: none !important;
 }
-
-/** Styles pour le footer **/
-
-.site-footer {
-  /*position: fixed;*/
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  
+button:hover {
+  background-color: black !important;
+  color: white !important;
+  outline: 0 !important;
+  outline-offset: 0 !important;
 }
-
-.footer-navigation a {
-  font-family: "Space-Mono", monospace;
-  font-size: 16px;
-  text-transform: uppercase;
-  text-decoration: none;
-}
-
-.footer-navigation a:hover {
-  font-weight: 600;
+a {
   text-decoration: none !important;
 }
+
 
 /* Styles pour les petits écrans */
 @media (max-width: 768px) {

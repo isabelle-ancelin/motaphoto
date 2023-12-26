@@ -45,26 +45,63 @@ Template Name: Photos
 
 
             <div class="photo-contact-section">
-                <p> Cette photo vous interesse ?</p>
-                <button class="photo-contact-btn">contact</button>
+                <div class="photo-contact">
+                    <p> Cette photo vous interesse ?</p>
+                    <button class="photo-contact-button" id="photo-contact-button" type="button">
+                        <a href="#" class="photo-contact-link">Contact</a>
+                    </button>
+                </div>
                 <div class="photo-navigation flexrow">
                     <div class="photo-navigation-prev">
-                        <a rel="prev" href="https://nathalie-mota.stephane-mouron.fr/photo/fin-de-match-au-stade-monumental-au-perou/" title="Fin de match" class="previous_post">
-                            <div>
-                                <img width="60" height="60" src="https://nathalie-mota.stephane-mouron.fr/wp-content/uploads/2023/05/nathalie-10-150x150.jpeg" class="attachment-77x60 size-77x60 wp-post-image" alt="Photo fin de match au Pérou" decoding="async">
-                            </div>
-                            <img src="https://nathalie-mota.stephane-mouron.fr/wp-content/themes/nathalie-mota/assets/img/precedent.png" alt="Photo précédente">
-                        </a>
+                        <?php
+                        $prev_post = get_previous_post();
+                        if (!empty($prev_post)) : ?>
+                            <a rel="prev" href="<?php echo esc_url(get_permalink($prev_post->ID)); ?>" title="<?php echo esc_attr(get_the_title($prev_post->ID)); ?>" class="previous_post">
+                                <?php echo get_the_post_thumbnail($prev_post->ID, 'thumbnail', array('class' => 'photo-nav-thumbnail')); ?>
+                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/pictures/previous-arrow.png" alt="Photo précédente">
+                            </a>
+                        <?php endif; ?>
                     </div>
                     <div class="photo-navigation-next">
-                        <!-- next_post_link( '%link', '%title', false );  -->
-                        <a rel="next" href="https://nathalie-mota.stephane-mouron.fr/photo/lamour-sans-fin/" title="L'amour sans fin" class="next_post">
-                            <div><img width="60" height="60" src="https://nathalie-mota.stephane-mouron.fr/wp-content/uploads/2023/05/nathalie-14-150x150.jpeg" class="attachment-77x60 size-77x60 wp-post-image" alt="Photo mariage de Vadim Paripa" decoding="async"></div>
-                            <img src="https://nathalie-mota.stephane-mouron.fr/wp-content/themes/nathalie-mota/assets/img/suivant.png" alt="Photo suivante">
-                        </a>
+                        <?php
+                        $next_post = get_next_post();
+                        if (!empty($next_post)) : ?>
+                            <a rel="next" href="<?php echo esc_url(get_permalink($next_post->ID)); ?>" title="<?php echo esc_attr(get_the_title($next_post->ID)); ?>" class="next_post">
+                                <?php echo get_the_post_thumbnail($next_post->ID, 'thumbnail', array('class' => 'photo-nav-thumbnail')); ?>
+                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/pictures/next-arrow.png" alt="Photo suivante">
+                            </a>
+                        <?php endif; ?>
                     </div>
+
                 </div>
-            </div><!-- .entry-content -->
+
+
+            </div>
+
+            <div class="photo-more-main">
+
+                <div class="photo-more">
+                    <h3>Vous aimerez aussi</h3>
+                    <div class="photo-more-thumbnails">
+                        <?php
+                        $loop = new WP_Query(array('post_type' => 'photos', 'posts_per_page' => 2));
+                        while ($loop->have_posts()) : $loop->the_post();
+                            // Ici, ajoutez le code pour afficher chaque post. Par exemple :
+                            echo '<div class="photo-more-thumbnail-div">';
+                            the_post_thumbnail('large', array('class' => 'photo-more-thumbnail'));
+                            echo '</div>';
+
+                        endwhile;
+                        wp_reset_postdata();
+                        ?>
+                    </div>
+
+
+                </div>
+                <button class="photo-more-button" id="load-more-btn">Charger plus</button>
+
+            </div>
+
 
             <footer class="entry-footer default-max-width">
                 <?php the_category(); ?>
@@ -75,10 +112,5 @@ Template Name: Photos
     <?php endwhile; ?>
 
 </main><!-- #main -->
-<?
-
-?>
-
-
 
 <?php get_footer(); ?>

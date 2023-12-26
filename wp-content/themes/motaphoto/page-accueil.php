@@ -33,7 +33,7 @@ get_header();
 </div>
 
 <div class="load-more-container">
-  <button id="load-more-btn">Charger plus</button>
+  <button class="photo-button" id="load-more-btn">Charger plus</button>
 </div>
 
 <?php if ($paged > 1): ?>
